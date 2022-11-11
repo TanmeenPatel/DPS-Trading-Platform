@@ -57,7 +57,7 @@ function decrease() {
 
     let value_dec = Number(localStorage[p]) * value / 100
     localStorage[p] = Number(localStorage[p]) - value_dec
-    localStorage[`${p}_change`] = `-${value_dec}`
+    localStorage[`${p}_change`] = `-${value}`
 
 }
 function increase() {
@@ -80,10 +80,11 @@ function increase() {
 
     let value_inc = Number(localStorage[p]) * value / 100
     localStorage[p] = Number(localStorage[p]) + value_inc
-    localStorage[`${p}_change`] = `+${value_inc}`
+    localStorage[`${p}_change`] = `+${value}`
 }
 
 function Loop() {
+    // here is buy and sell na?
     buy_s = document.getElementById('buy').value
     sell_s = document.getElementById('sell').value
 
