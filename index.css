@@ -1,0 +1,65 @@
+body {
+    background-color: #DBDBDB;
+    margin: 0;
+    font-size: 24px;
+}
+
+h1 {
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-weight: 700;
+    margin: 0.5em;
+    margin-inline-start: 0.5em;
+    margin-inline-end: 0.5em;
+    font-size: 36px;
+    width: fit-content;
+}
+
+.exit-btn {
+    text-align: right;
+}
+
+#exit {
+    font-size: 20px;
+    margin-right: 0.5em;
+    background-color: #FF6363;
+    border-radius: 8px;
+    border: none;
+    padding: 0.5em 1em;
+}
+
+.stats {
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+
+}
+
+table {
+    margin-top: 1em;
+    margin-left: 4em;
+    margin-right: 4em;
+    width: 100%;
+}
+
+td {
+    margin-left: 10%;
+}
+
+/* .divider {
+    border-right: thin solid #3c3c3c;
+    height: 400px;
+    width: 50%;
+    margin-top: 1em;
+} */
+
+.buy {
+    margin-left: 0.75em;
+    width: 50%;
+    border: thin solid green;
+}
+
+.sell {
+    margin-left: 0.75em;
+    width: 50%;
+    border: thin solid red;
+}
