@@ -9,6 +9,8 @@ localStorage.p2_change = +"1.87"
 localStorage.p3_change = -"0.9"
 localStorage.p4_change = -"1.72"
 var i = 1;
+
+// The main loop
 function myLoop() {
     setTimeout(function () {
         choose()
@@ -37,57 +39,48 @@ function choose() {
 }
 function decrease() {
     let product = getRandomInt(4)
+    let value = getRandomArbitrary(1, 4)
+    let p;
+
     if (product == 0) {
-        let value = getRandomArbitrary(1, 4)
-        let value_dec = Number(localStorage.p1) * value / 100
-        localStorage.p1 = Number(localStorage.p1) - value_dec
-        localStorage.p1_change = `-${value_dec}`
+        p = "p1"
     }
     else if (product == 1) {
-        let value = getRandomArbitrary(1, 4)
-        let value_dec = Number(localStorage.p2) * value / 100
-        localStorage.p2 = Number(localStorage.p2) - value_dec
-        localStorage.p2_change = `-${value_dec}`
+        p = "p2"
     }
     else if (product == 2) {
-        let value = getRandomArbitrary(1, 4)
-        let value_dec = Number(localStorage.p3) * value / 100
-        localStorage.p3 = Number(localStorage.p3) - value_dec
-        localStorage.p3_change = `-${value_dec}`
+        p = "p3"
     }
     else if (product == 3) {
-        let value = getRandomArbitrary(1, 4)
-        let value_dec = Number(localStorage.p4) * value / 100
-        localStorage.p4 = Number(localStorage.p4) - value_dec
-        localStorage.p4_change = `-${value_dec}`
+        p = "p4"
     }
+
+    let value_dec = Number(localStorage[p]) * value / 100
+    localStorage[p] = Number(localStorage[p]) - value_dec
+    localStorage[`${p}_change`] = `-${value_dec}`
+
 }
 function increase() {
     let product = getRandomInt(4)
+    let value = getRandomArbitrary(1, 4)
+    let p;
+
     if (product == 0) {
-        let value = getRandomArbitrary(1, 4)
-        let value_inc = Number(localStorage.p1) * value / 100
-        localStorage.p1 = Number(localStorage.p1) + value_inc
-        localStorage.p1_change = `+${value_inc}`
+        p = "p1"
     }
     else if (product == 1) {
-        let value = getRandomArbitrary(1, 4)
-        let value_inc = Number(localStorage.p2) * value / 100
-        localStorage.p2 = Number(localStorage.p2) + value_inc
-        localStorage.p2_change = `+${value_inc}`
+        p = "p2"
     }
     else if (product == 2) {
-        let value = getRandomArbitrary(1, 4)
-        let value_inc = Number(localStorage.p3) * value / 100
-        localStorage.p3 = Number(localStorage.p3) + value_inc
-        localStorage.p3_change = `+${value_inc}`
+        p = "p3"
     }
     else if (product == 3) {
-        let value = getRandomArbitrary(1, 4)
-        let value_inc = Number(localStorage.p4) * value / 100
-        localStorage.p4 = Number(localStorage.p4) + value_inc
-        localStorage.p4_change = `+${value_inc}`
+        p = "p4"
     }
+
+    let value_inc = Number(localStorage[p]) * value / 100
+    localStorage[p] = Number(localStorage[p]) + value_inc
+    localStorage[`${p}_change`] = `+${value_inc}`
 }
 
 function Loop() {
@@ -101,87 +94,28 @@ function Loop() {
         }
     }, 500)
 }
+
 function display() {
-    if (buy_s == "p1") {
-        document.getElementById("current-price-buy").innerHTML = localStorage.p1.substring(0, 6)
-        document.getElementById("trend-buy").innerHTML = localStorage.p1_change.substring(0, 6)
-        if (localStorage.p1_change[0] == "-") {
-            document.getElementById("trend-buy").style.color = "red"
-        }
-        else {
-            document.getElementById("trend-buy").style.color = "green"
-        }
+    // Buying Part
+    document.getElementById("current-price-buy").innerHTML = localStorage[buy_s].substring(0, 6)
+    document.getElementById("trend-buy").innerHTML = localStorage[`${buy_s}_change`].substring(0, 6)
+    if (localStorage[`${buy_s}_change`][0] == "-") {
+        document.getElementById("trend-buy").style.color = "red"
     }
-    else if (buy_s == "p2") {
-        document.getElementById("current-price-buy").innerHTML = localStorage.p2.substring(0, 6)
-        document.getElementById("trend-buy").innerHTML = localStorage.p2_change.substring(0, 6)
-        if (localStorage.p2_change[0] == "-") {
-            document.getElementById("trend-buy").style.color = "red"
-        }
-        else {
-            document.getElementById("trend-buy").style.color = "green"
-        }
-    }
-    else if (buy_s == "p3") {
-        document.getElementById("current-price-buy").innerHTML = localStorage.p3.substring(0, 6)
-        document.getElementById("trend-buy").innerHTML = localStorage.p3_change.substring(0, 6)
-        if (localStorage.p3_change[0] == "-") {
-            document.getElementById("trend-buy").style.color = "red"
-        }
-        else {
-            document.getElementById("trend-buy").style.color = "green"
-        }
-    }
-    else if (buy_s == "p4") {
-        document.getElementById("current-price-buy").innerHTML = localStorage.p4.substring(0, 6)
-        document.getElementById("trend-buy").innerHTML = localStorage.p4_change.substring(0, 6)
-        if (localStorage.p4_change[0] == "-") {
-            document.getElementById("trend-buy").style.color = "red"
-        }
-        else {
-            document.getElementById("trend-buy").style.color = "green"
-        }
-    }
-    if (sell_s == "p1") {
-        document.getElementById("current-price-sell").innerHTML = localStorage.p1.substring(0, 6)
-        document.getElementById("trend-sell").innerHTML = localStorage.p1_change.substring(0, 6)
-        if (localStorage.p1_change[0] == "-") {
-            document.getElementById("trend-sell").style.color = "red"
-        }
-        else {
-            document.getElementById("trend-sell").style.color = "green"
-        }
-    }
-    else if (sell_s == "p2") {
-        document.getElementById("current-price-sell").innerHTML = localStorage.p2.substring(0, 6)
-        document.getElementById("trend-sell").innerHTML = localStorage.p2_change.substring(0, 6)
-        if (localStorage.p2_change[0] == "-") {
-            document.getElementById("trend-sell").style.color = "red"
-        }
-        else {
-            document.getElementById("trend-sell").style.color = "green"
-        }
-    }
-    else if (sell_s == "p3") {
-        document.getElementById("current-price-sell").innerHTML = localStorage.p3.substring(0, 6)
-        document.getElementById("trend-sell").innerHTML = localStorage.p3_change.substring(0, 6)
-        if (localStorage.p3_change[0] == "-") {
-            document.getElementById("trend-sell").style.color = "red"
-        }
-        else {
-            document.getElementById("trend-sell").style.color = "green"
-        }
-    }
-    else if (sell_s == "p4") {
-        document.getElementById("current-price-sell").innerHTML = localStorage.p4.substring(0, 6)
-        document.getElementById("trend-sell").innerHTML = localStorage.p4_change.substring(0, 6)
-        if (localStorage.p4_change[0] == "-") {
-            document.getElementById("trend-sell").style.color = "red"
-        }
-        else {
-            document.getElementById("trend-sell").style.color = "green"
-        }
+    else {
+        document.getElementById("trend-buy").style.color = "green"
     }
 
+    // Selling Part
+    document.getElementById("current-price-sell").innerHTML = localStorage[sell_s].substring(0, 6)
+    document.getElementById("trend-sell").innerHTML = localStorage[`${sell_s}_change`].substring(0, 6)
+    if (localStorage[`${sell_s}_change`][0] == "-") {
+        document.getElementById("trend-sell").style.color = "red"
+    }
+    else {
+        document.getElementById("trend-sell").style.color = "green"
+    }
+
+    // How does this function even run ? How and from where is it getting buy_s and sell_s
 }
 Loop();
