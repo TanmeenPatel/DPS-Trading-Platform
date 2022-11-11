@@ -98,7 +98,7 @@ function Loop() {
 function display() {
     // Buying Part
     document.getElementById("current-price-buy").innerHTML = localStorage[buy_s].substring(0, 6)
-    document.getElementById("trend-buy").innerHTML = localStorage[`${buy_s}_change`].substring(0, 6)
+    document.getElementById("trend-buy").innerHTML = `${localStorage[`${buy_s}_change`].substring(0, 6)}%`
     if (localStorage[`${buy_s}_change`][0] == "-") {
         document.getElementById("trend-buy").style.color = "red"
     }
@@ -108,7 +108,7 @@ function display() {
 
     // Selling Part
     document.getElementById("current-price-sell").innerHTML = localStorage[sell_s].substring(0, 6)
-    document.getElementById("trend-sell").innerHTML = localStorage[`${sell_s}_change`].substring(0, 6)
+    document.getElementById("trend-sell").innerHTML = `${localStorage[`${sell_s}_change`].substring(0, 6)}%`
     if (localStorage[`${sell_s}_change`][0] == "-") {
         document.getElementById("trend-sell").style.color = "red"
     }
