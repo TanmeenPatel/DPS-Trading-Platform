@@ -41,25 +41,25 @@ function decrease() {
         let value = getRandomArbitrary(1, 4)
         let value_dec = Number(localStorage.p1) * value / 100
         localStorage.p1 = Number(localStorage.p1) - value_dec
-        localStorage.p1_change = `-${value_dec}`
+        localStorage.p1_change = `-${value}`
     }
     else if (product == 1) {
         let value = getRandomArbitrary(1, 4)
         let value_dec = Number(localStorage.p2) * value / 100
         localStorage.p2 = Number(localStorage.p2) - value_dec
-        localStorage.p2_change = `-${value_dec}`
+        localStorage.p2_change = `-${value}`
     }
     else if (product == 2) {
         let value = getRandomArbitrary(1, 4)
         let value_dec = Number(localStorage.p3) * value / 100
         localStorage.p3 = Number(localStorage.p3) - value_dec
-        localStorage.p3_change = `-${value_dec}`
+        localStorage.p3_change = `-${value}`
     }
     else if (product == 3) {
         let value = getRandomArbitrary(1, 4)
         let value_dec = Number(localStorage.p4) * value / 100
         localStorage.p4 = Number(localStorage.p4) - value_dec
-        localStorage.p4_change = `-${value_dec}`
+        localStorage.p4_change = `-${value}`
     }
 }
 function increase() {
@@ -68,25 +68,25 @@ function increase() {
         let value = getRandomArbitrary(1, 4)
         let value_inc = Number(localStorage.p1) * value / 100
         localStorage.p1 = Number(localStorage.p1) + value_inc
-        localStorage.p1_change = `+${value_inc}`
+        localStorage.p1_change = `+${value}`
     }
     else if (product == 1) {
         let value = getRandomArbitrary(1, 4)
         let value_inc = Number(localStorage.p2) * value / 100
         localStorage.p2 = Number(localStorage.p2) + value_inc
-        localStorage.p2_change = `+${value_inc}`
+        localStorage.p2_change = `+${value}`
     }
     else if (product == 2) {
         let value = getRandomArbitrary(1, 4)
         let value_inc = Number(localStorage.p3) * value / 100
         localStorage.p3 = Number(localStorage.p3) + value_inc
-        localStorage.p3_change = `+${value_inc}`
+        localStorage.p3_change = `+${value}`
     }
     else if (product == 3) {
         let value = getRandomArbitrary(1, 4)
         let value_inc = Number(localStorage.p4) * value / 100
         localStorage.p4 = Number(localStorage.p4) + value_inc
-        localStorage.p4_change = `+${value_inc}`
+        localStorage.p4_change = `+${value}`
     }
 }
 
@@ -104,7 +104,7 @@ function Loop() {
 function display() {
     if (buy_s == "p1") {
         document.getElementById("current-price-buy").innerHTML = localStorage.p1.substring(0, 6)
-        document.getElementById("trend-buy").innerHTML = localStorage.p1_change.substring(0, 6)
+        document.getElementById("trend-buy").innerHTML = `${localStorage.p1_change.substring(0, 6)}%`
         if (localStorage.p1_change[0] == "-") {
             document.getElementById("trend-buy").style.color = "red"
         }
@@ -114,7 +114,7 @@ function display() {
     }
     else if (buy_s == "p2") {
         document.getElementById("current-price-buy").innerHTML = localStorage.p2.substring(0, 6)
-        document.getElementById("trend-buy").innerHTML = localStorage.p2_change.substring(0, 6)
+        document.getElementById("trend-buy").innerHTML = `${localStorage.p2_change.substring(0, 6)}%`
         if (localStorage.p2_change[0] == "-") {
             document.getElementById("trend-buy").style.color = "red"
         }
@@ -124,7 +124,7 @@ function display() {
     }
     else if (buy_s == "p3") {
         document.getElementById("current-price-buy").innerHTML = localStorage.p3.substring(0, 6)
-        document.getElementById("trend-buy").innerHTML = localStorage.p3_change.substring(0, 6)
+        document.getElementById("trend-buy").innerHTML = `${localStorage.p3_change.substring(0, 6)}%`
         if (localStorage.p3_change[0] == "-") {
             document.getElementById("trend-buy").style.color = "red"
         }
@@ -134,7 +134,7 @@ function display() {
     }
     else if (buy_s == "p4") {
         document.getElementById("current-price-buy").innerHTML = localStorage.p4.substring(0, 6)
-        document.getElementById("trend-buy").innerHTML = localStorage.p4_change.substring(0, 6)
+        document.getElementById("trend-buy").innerHTML = `${localStorage.p4_change.substring(0, 6)}%`
         if (localStorage.p4_change[0] == "-") {
             document.getElementById("trend-buy").style.color = "red"
         }
@@ -144,7 +144,7 @@ function display() {
     }
     if (sell_s == "p1") {
         document.getElementById("current-price-sell").innerHTML = localStorage.p1.substring(0, 6)
-        document.getElementById("trend-sell").innerHTML = localStorage.p1_change.substring(0, 6)
+        document.getElementById("trend-sell").innerHTML = `${localStorage.p1_change.substring(0, 6)}%`
         if (localStorage.p1_change[0] == "-") {
             document.getElementById("trend-sell").style.color = "red"
         }
@@ -154,7 +154,7 @@ function display() {
     }
     else if (sell_s == "p2") {
         document.getElementById("current-price-sell").innerHTML = localStorage.p2.substring(0, 6)
-        document.getElementById("trend-sell").innerHTML = localStorage.p2_change.substring(0, 6)
+        document.getElementById("trend-sell").innerHTML = `${localStorage.p2_change.substring(0, 6)}%`
         if (localStorage.p2_change[0] == "-") {
             document.getElementById("trend-sell").style.color = "red"
         }
@@ -164,7 +164,7 @@ function display() {
     }
     else if (sell_s == "p3") {
         document.getElementById("current-price-sell").innerHTML = localStorage.p3.substring(0, 6)
-        document.getElementById("trend-sell").innerHTML = localStorage.p3_change.substring(0, 6)
+        document.getElementById("trend-sell").innerHTML = `${localStorage.p3_change.substring(0, 6)}%`
         if (localStorage.p3_change[0] == "-") {
             document.getElementById("trend-sell").style.color = "red"
         }
@@ -174,7 +174,7 @@ function display() {
     }
     else if (sell_s == "p4") {
         document.getElementById("current-price-sell").innerHTML = localStorage.p4.substring(0, 6)
-        document.getElementById("trend-sell").innerHTML = localStorage.p4_change.substring(0, 6)
+        document.getElementById("trend-sell").innerHTML = `${localStorage.p4_change.substring(0, 6)}%`
         if (localStorage.p4_change[0] == "-") {
             document.getElementById("trend-sell").style.color = "red"
         }
