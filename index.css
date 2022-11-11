@@ -39,24 +39,25 @@ table {
     width: 100%;
 }
 
+tr {
+    width: 33.33%;
+}
+
 .buy {
     width: 40%;
     font-weight: 600;
-    text-align: center;
     border-right: thin solid #3c3c3c;
     height: 15em;
 }
 
 .sell {
     width: 40%;
-    text-align: center;
     border-right: thin solid #3c3c3c;
     height: 15em;
 }
 
 .portfolio {
     width: 20%;
-    text-align: center;
     height: 15em;
 }
 
@@ -71,4 +72,36 @@ table {
     font-family: 'Poppins', 'Verdana', sans-serif;
     font-weight: 600;
     font-size: 1em;
+    text-align: center;
+}
+
+select {
+    width: 70%;
+    height: 40px;
+    border: none;
+    border-radius: 0px;
+    font-size: 0.7em;
+    border-radius: 5px;
+}
+
+.content {
+    text-align: center;
+}
+
+#option {
+    font-size: 1em;
+    height: 40px;
+
+}
+
+.flex {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.trend {
+    width: 25%;
+    padding-left: 3px;
 }
