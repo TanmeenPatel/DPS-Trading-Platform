@@ -1,13 +1,16 @@
 // onload setting default balance to 100000 rupees.
-localStorage.balance = 100000
-localStorage.p1 = 259.076
-localStorage.p2 = 92.210
-localStorage.p3 = 150.456
-localStorage.p4 = 192.010
-localStorage.p1_change = +"5.6"
-localStorage.p2_change = +"1.87"
-localStorage.p3_change = -"0.9"
-localStorage.p4_change = -"1.72"
+localStorage.vis = localStorage.vis + "1"
+if (localStorage.vis == "undefined1") {
+    localStorage.balance = 100000
+    localStorage.p1 = 259.076
+    localStorage.p2 = 92.210
+    localStorage.p3 = 150.456
+    localStorage.p4 = 192.010
+    localStorage.p1_change = +"5.6"
+    localStorage.p2_change = +"1.87"
+    localStorage.p3_change = -"0.9"
+    localStorage.p4_change = -"1.72"
+}
 var i = 1;
 
 // The main loop
