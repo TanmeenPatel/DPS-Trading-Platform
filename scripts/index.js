@@ -10,7 +10,7 @@ if (localStorage.vis == "undefined1") {
     localStorage.p2_change = +"1.87"
     localStorage.p3_change = -"0.9"
     localStorage.p4_change = -"1.72"
-    localStorage.stocks = 'none'
+    localStorage.stocks = '[{}]'
 }
 var k = 1;
 
@@ -101,7 +101,7 @@ function Loop() {
 }
 
 function display() {
-    // Buying Part
+    // displaying part
     document.getElementById("current-balance").innerHTML = localStorage.balance.substring(0, 8)
     document.getElementById("current-price-sell-text").innerHTML = localStorage[sell_s].substring(0, 6)
     document.getElementById("current-price-buy-text").innerHTML = localStorage[buy_s].substring(0, 6)
@@ -144,18 +144,37 @@ function buy() {
     let total = String(current_price * quantity)
     if ((Number(document.getElementById("quantity-buy").value) != 'NaN') && (Number(localStorage.balance) >= Number(total))) {
         localStorage.balance = Number(localStorage.balance) - Number(total)
-        localStorage.stocks = localStorage.stocks + `, ${option} ${quantity}`
+        const data = JSON.parse(localStorage.stocks, [])
+        data.push({ stock: `${option}`, number: quantity })
+        localStorage.stocks = JSON.stringify(data)
+        document.getElementById("verified-bought").innerHTML = "Stock(s) bought successfully."
     }
     else if (Number(localStorage.balance) < Number(total)) {
-        alert("You don't have enough money.")
+        document.getElementById("verified-bought").innerHTML = "You do not have enough money."
     }
     else {
-        alert("The quantity field must be a number only.")
+        document.getElementById("verified-bought").innerHTML = "The Quantity field must be a number."
     }
 }
 function sell() {
-    let quantity = Number(document.getElementById("quantity-sell").value)
-    let option = document.getElementById('sell').value
-    let current_price = Number(localStorage[option])
-    let total = String(current_price * quantity)
+    let quantity2 = Number(document.getElementById("quantity-sell").value)
+    let option2 = document.getElementById('sell').value
+    let current_price2 = Number(localStorage[option2])
+    let total2 = current_price2 * quantity2
+    let stocks = JSON.parse(localStorage.stocks, [])
+    let sum = 0
+    for (j = 1; j < stocks.length; j++) {
+        if (stocks[j]['stock'] == option2) {
+            sum = sum + Number(stocks[j]['number'])
+        }
+    }
+    if (quantity2 <= sum) {
+        localStorage.balance = Number(localStorage.balance) + total2
+        stocks.push({ stock: `${option2}`, number: -(quantity2) })
+        localStorage.stocks = JSON.stringify(stocks)
+        document.getElementById("verified-sold").innerHTML = "Stock(s) sold successfully."
+    }
+    else {
+        document.getElementById("verified-sold").innerHTML = "You do not have enough stocks."
+    }
 }
