@@ -141,7 +141,7 @@ function display() {
         document.getElementById("loss").innerHTML = "0"
     }
     else {  //else obviously it's a loss
-        document.getElementById("loss").innerHTML = String(100000(Number(localStorage.balance) + worth)).substring(0, 8)
+        document.getElementById("loss").innerHTML = String(100000 - (Number(localStorage.balance) + worth)).substring(0, 8)
         document.getElementById("profit").innerHTML = "0"
     }
 
