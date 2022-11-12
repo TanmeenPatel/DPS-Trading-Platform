@@ -102,6 +102,7 @@ function Loop() {
 
 function display() {
     // Buying Part
+    document.getElementById("current-balance").innerHTML = localStorage.balance.substring(0, 8)
     document.getElementById("current-price-sell-text").innerHTML = localStorage[sell_s].substring(0, 6)
     document.getElementById("current-price-buy-text").innerHTML = localStorage[buy_s].substring(0, 6)
     document.getElementById("current-price-buy").innerHTML = localStorage[buy_s].substring(0, 6)
@@ -133,7 +134,6 @@ function display() {
     else {
         document.getElementById("trend-sell").style.color = "green"
     }
-    document.getElementById("current-balance").innerHTML = localStorage.balance
 }
 Loop();
 
