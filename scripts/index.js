@@ -11,13 +11,13 @@ if (localStorage.vis == "undefined1") {
     localStorage.p3_change = -"0.9"
     localStorage.p4_change = -"1.72"
 }
-var i = 1;
+var k = 1;
 
 // The main loop
 function myLoop() {
     setTimeout(function () {
         choose()
-        if (i < 2) {
+        if (k < 2) {
             myLoop();
         }
     }, 30000)
@@ -93,7 +93,7 @@ function Loop() {
 
     setTimeout(function () {
         display()
-        if (i < 2) {
+        if (k < 2) {
             Loop();
         }
     }, 500)
@@ -119,7 +119,5 @@ function display() {
     else {
         document.getElementById("trend-sell").style.color = "green"
     }
-
-    // How does this function even run ? How and from where is it getting buy_s and sell_s
 }
 Loop();
