@@ -15,7 +15,7 @@
 <body>
     <h1>DASHBOARD</h1>
     <div class="stats">
-        <table>
+        <table class="stats-tb">
             <tr>
                 <td>Balance: <span id="current-balance"></span></td>
                 <td>Loss: </td>
@@ -40,6 +40,7 @@
                 </select>
                 <div class="flex">
                     <div class="current-price" id="current-price-buy"></div>
+                    <span>,</span>
                     <div class="trend" id="trend-buy"></div>
                 </div>
                 <div class="flex">
@@ -62,6 +63,7 @@
                 </select>
                 <div class="flex">
                     <div class="current-price" id="current-price-sell"></div>
+                    <span>,</span>
                     <div class="trend" id="trend-sell"></div>
                 </div>
                 <div class="flex">
@@ -77,6 +79,18 @@
             <h2 class="subheading">Portfolio</h2>
         </div>
     </div>
+    <br><br>
+    <footer>
+        <table class="footer">
+            <tr>
+                <td class="footer-info" id="left-info">2022, DPS Sharjah</td>
+                <td class="footer-info" id="center-info">Made by Students of Grade 11</td>
+                <td class="footer-info" id="right-info">
+                    <a href="https://github.com/TanmeenPatel/DPS-Trading-Platform">Github</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
 </body>
 <script src="./scripts/index.js"></script>
 <script src="./scripts/news.js"></script>
