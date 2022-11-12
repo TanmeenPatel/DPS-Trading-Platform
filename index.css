@@ -34,7 +34,7 @@ h1 {
     width: 100%;
 }
 
-table {
+.stats-tb {
     padding-left: 4em;
     width: 100%;
 }
@@ -47,18 +47,18 @@ td {
     width: 40%;
     font-weight: 600;
     border-right: thin solid #3c3c3c;
-    height: 15em;
+    height: 18em;
 }
 
 .sell {
     width: 40%;
     border-right: thin solid #3c3c3c;
-    height: 15em;
+    height: 18em;
 }
 
 .portfolio {
     width: 20%;
-    height: 15em;
+    height: 18em;
 }
 
 .buy-sell {
@@ -98,12 +98,44 @@ select {
     margin-top: 2em;
     display: flex;
     justify-content: center;
-    font-weight: 600;
+    font-weight: 900;
 }
 
 .trend {
     width: 25%;
-    padding-left: 3px;
+    padding-left: 0.33em;
+    font-weight: 300;
+}
+
+.footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 1em;
+}
+
+.footer-info {
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    width: 33.33%;
+    font-size: 0.75em;
+    color: #626262;
+}
+
+#left-info {
+    text-align: left;
+    padding-left: 2em;
+    padding-bottom: 0.5em;
+}
+
+#center-info {
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+#right-info {
+    text-align: right;
+    padding-right: 2em;
+    padding-bottom: 0.5em;
 }
 
 .buy-button {
@@ -146,4 +178,10 @@ textarea {
 
 .sell-button:hover {
     background-color: #ff8f8fde;
+}
+
+a {
+    text-decoration: none;
+    color: #3c3c3c;
+    text-decoration-line: none;
 }
