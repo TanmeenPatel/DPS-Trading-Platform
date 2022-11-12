@@ -17,9 +17,9 @@
     <div class="stats">
         <table>
             <tr>
-                <td>Balance: </td>
+                <td>Balance: <span id="current-balance"></span></td>
                 <td>Loss: </td>
-                <td>Started w/: </td>
+                <td>Started w/: 100000</td>
             </tr>
             <tr>
                 <td>Invested: </td>
@@ -36,12 +36,19 @@
                     <option value="p1" id="option">Reliance Digital</option>
                     <option value="p2" id="option">NVIDIA</option>
                     <option value="p3" id="option">Tesla</option>
-                    <option value="p4" id="option">Air India</option>
+                    <option value="p4" id="option">Tata</option>
                 </select>
                 <div class="flex">
                     <div class="current-price" id="current-price-buy"></div>
                     <div class="trend" id="trend-buy"></div>
                 </div>
+                <div class="flex">
+                    <textarea id="quantity-buy" cols="30" rows="1" placeholder="Quantity"></textarea> @
+                    <textarea id="current-price-buy-text" cols="30" rows="1" placeholder="Current Price"></textarea>
+                    =
+                    <textarea id="invested-buy" cols="30" rows="1" placeholder="Amount"></textarea>
+                </div>
+                <button onclick="buy()" class="buy-button">Buy</button>
             </div>
         </div>
         <div class="sell">
@@ -51,12 +58,19 @@
                     <option value="p1" id="option">Reliance Digital</option>
                     <option value="p2" id="option">NVIDIA</option>
                     <option value="p3" id="option">Tesla</option>
-                    <option value="p4" id="option">Air India</option>
+                    <option value="p4" id="option">Tata</option>
                 </select>
                 <div class="flex">
                     <div class="current-price" id="current-price-sell"></div>
                     <div class="trend" id="trend-sell"></div>
                 </div>
+                <div class="flex">
+                    <textarea id="quantity-sell" cols="30" rows="1" placeholder="Quantity"></textarea> @
+                    <textarea id="current-price-sell-text" cols="30" rows="1" placeholder="Current Price"></textarea>
+                    =
+                    <textarea id="invested-sell" cols="30" rows="1" placeholder="Amount"></textarea>
+                </div>
+                <button onclick="sell()" class="sell-button">Sell</button>
             </div>
         </div>
         <div class="portfolio">

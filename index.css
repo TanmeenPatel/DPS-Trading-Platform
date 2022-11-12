@@ -39,7 +39,7 @@ table {
     width: 100%;
 }
 
-tr {
+td {
     width: 33.33%;
 }
 
@@ -95,7 +95,7 @@ select {
 }
 
 .flex {
-    margin-top: 2%;
+    margin-top: 2em;
     display: flex;
     justify-content: center;
     font-weight: 600;
@@ -104,4 +104,46 @@ select {
 .trend {
     width: 25%;
     padding-left: 3px;
+}
+
+.buy-button {
+    margin-top: 2em;
+    height: 2.5em;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-size: 0.7em;
+    border-radius: 50px;
+    border: none;
+    width: 100px;
+    background-color: #549A63;
+}
+
+.buy-button:hover {
+    background-color: #458d55;
+}
+
+textarea {
+    width: 125px;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-size: 0.7em;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    resize: none;
+}
+
+.sell-button {
+    margin-top: 2em;
+    height: 2.5em;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-size: 0.7em;
+    border-radius: 50px;
+    border: none;
+    width: 100px;
+    background-color: #FF8F8F;
+}
+
+.sell-button:hover {
+    background-color: #ff8f8fde;
 }
