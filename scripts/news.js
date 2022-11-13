@@ -24,6 +24,7 @@ function loop() {
                     let dec = Number(localStorage[p]) * value / 100
                     localStorage[p] = Number(localStorage[p]) - dec
                     localStorage[`${p}_change`] = `-${value}`
+                    register_change(p, localStorage[p])
                     i++
                 }
                 else {
@@ -32,6 +33,7 @@ function loop() {
                     let inc = Number(localStorage[p]) * value / 100
                     localStorage[p] = Number(localStorage[p]) + inc
                     localStorage[`${p}_change`] = `+${value}`
+                    register_change(p, localStorage[p])
                     i++
                 }
             }, 15000)

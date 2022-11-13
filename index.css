@@ -1,5 +1,6 @@
 body {
-    background-image: url("bg.jpg");
+    background: url("bg.jpg") no-repeat center center fixed;
+    background-size: cover;
     opacity: 0.8;
     margin: 0;
     font-size: 24px;
@@ -257,4 +258,8 @@ a {
 .symbols {
     margin: 0em 0.5em;
     font-size: 1em;
+}
+
+.chart-container {
+    margin-bottom: 5rem;
 }

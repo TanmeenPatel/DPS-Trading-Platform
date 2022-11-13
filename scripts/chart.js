@@ -1,22 +1,21 @@
-const labels = Utils.numbers();
+const labels = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 
-let buy_data = { datasets: { data: [10, 20, 30] } };
 let buy_config = {
     type: "line",
     data: {
         labels,
         datasets: [
             {
+                label: "Stock Name",
                 backgroundColor: "rgb(255, 99, 132)",
                 borderColor: "rgb(255, 99, 132)",
-                data: [0, 10, 5, 2, 20, 30, 45],
+                data: [],
             },
         ],
     },
     options: {},
 };
 
-let sell_data = { datasets: { data: [15, 20, 30] } };
 let sell_config = {
     type: "line",
     data: {
@@ -26,7 +25,7 @@ let sell_config = {
                 label: "My First dataset",
                 backgroundColor: "rgb(255, 99, 132)",
                 borderColor: "rgb(255, 99, 132)",
-                data: [0, 10, 5, 2, 20, 30, 45],
+                data: [],
             },
         ],
     },
@@ -41,3 +40,29 @@ const sell_chart = new Chart(
     document.getElementById("sell_side_chart"),
     sell_config
 );
+
+
+
+
+function register_change(product_name, price) {
+    // console.log(product_name)
+    let stock_hist = JSON.parse(localStorage.stock_history)
+    stock_hist[product_name].push(price)
+    localStorage.stock_history = JSON.stringify(stock_hist)
+    console.log(price, product_name)
+}
+
+
+function display_buy_chart(product_name, srl_no){
+    buy_config.data.datasets[0].label = product_name
+    let stock_hist = JSON.parse(localStorage.stock_history)
+    buy_config.data.datasets[0].data = stock_hist[srl_no]
+    buy_chart.update()
+}
+
+function display_sell_chart(product_name, srl_no){
+    sell_config.data.datasets[0].label = product_name
+    let stock_hist = JSON.parse(localStorage.stock_history)
+    sell_config.data.datasets[0].data = stock_hist[srl_no]
+    sell_chart.update()
+}
