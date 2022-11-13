@@ -1,7 +1,54 @@
 body {
-    background-color: #DBDBDB;
+    background-image: url("bg.jpg");
+    opacity: 0.8;
     margin: 0;
     font-size: 24px;
+}
+
+header {
+    display: flex;
+}
+
+.heading {
+    width: 90%;
+}
+
+.info-btn {
+    display: flex;
+    width: 10%;
+    border-left: thin;
+    justify-content: right;
+}
+
+#info {
+    font-size: 12px;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-right: 1.5em;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 1.8em;
+    height: 3em;
+    width: 6em;
+}
+
+.more-info {
+    display: none;
+    font-size: 12px;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    color: #ffffff;
+    background-color: rgba(60, 60, 60, 0.9);
+    width: 30em;
+    height: 30em;
+    position: absolute;
+    margin: 2em;
+    padding: 2em;
+    border-radius: 0.5em;
+}
+
+#info:active+.more-info {
+    display: flex;
 }
 
 h1 {
@@ -14,19 +61,6 @@ h1 {
     width: fit-content;
 }
 
-.exit-btn {
-    text-align: right;
-}
-
-#exit {
-    font-size: 20px;
-    margin-right: 0.5em;
-    background-color: #FF6363;
-    border-radius: 8px;
-    border: none;
-    padding: 0.5em 1em;
-}
-
 .stats {
     font-family: 'Poppins', 'Verdana', sans-serif;
     font-weight: 300;
@@ -34,31 +68,30 @@ h1 {
     width: 100%;
 }
 
-table {
+.stats-tb {
     padding-left: 4em;
     width: 100%;
 }
 
-tr {
+td {
     width: 33.33%;
 }
 
 .buy {
     width: 40%;
-    font-weight: 600;
     border-right: thin solid #3c3c3c;
-    height: 15em;
+    height: 18em;
 }
 
 .sell {
     width: 40%;
     border-right: thin solid #3c3c3c;
-    height: 15em;
+    height: 18em;
 }
 
 .portfolio {
     width: 20%;
-    height: 15em;
+    height: 18em;
 }
 
 .buy-sell {
@@ -95,13 +128,133 @@ select {
 }
 
 .flex {
-    margin-top: 2%;
+    margin-top: 2em;
     display: flex;
     justify-content: center;
-    font-weight: 600;
+}
+
+.current-price {
+    font-size: 2em;
+    font-weight: 900;
 }
 
 .trend {
+    font-size: 2em;
     width: 25%;
-    padding-left: 3px;
+    padding-left: 0.33em;
+    font-weight: 300;
+}
+
+.footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 1em;
+    background-color: rgba(60, 60, 60, 0);
+}
+
+.footer-info {
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    width: 33.33%;
+    font-size: 0.75em;
+    color: #555;
+}
+
+#left-info {
+    text-align: left;
+    padding-left: 2em;
+    padding-bottom: 0.5em;
+}
+
+#center-info {
+    text-align: center;
+    padding-bottom: 0.5em;
+}
+
+#right-info {
+    text-align: right;
+    padding-right: 2em;
+    padding-bottom: 0.5em;
+}
+
+.buy-button {
+    margin-top: 2em;
+    height: 2.5em;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-size: 0.7em;
+    border-radius: 50px;
+    border: none;
+    width: 100px;
+    background-color: #549A63;
+}
+
+.buy-button:hover {
+    background-color: #458d55;
+}
+
+textarea {
+    width: 125px;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-size: 0.7em;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    resize: none;
+}
+
+.sell-button {
+    margin-top: 2em;
+    height: 2.5em;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-size: 0.7em;
+    border-radius: 50px;
+    border: none;
+    width: 100px;
+    background-color: #FF8F8F;
+}
+
+.sell-button:hover {
+    background-color: #ff8f8fde;
+}
+
+a {
+    text-decoration: none;
+    color: #3c3c3c;
+    text-decoration-line: underline;
+}
+
+#verified-bought {
+    text-align: center;
+    margin-top: 2em;
+    height: 2.5em;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+#verified-sold {
+    text-align: center;
+    margin-top: 2em;
+    height: 2.5em;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+#portfolio {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#div-for-worth {
+    margin-top: 1.5em;
+    margin-bottom: 3%;
+    font-size: 1.2em;
+}
+
+.symbols {
+    margin: 0em 0.5em;
+    font-size: 1em;
 }

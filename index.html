@@ -13,18 +13,40 @@
 </head>
 
 <body>
-    <h1>DASHBOARD</h1>
+    <header>
+        <div class="heading">
+            <h1>DASHBOARD</h1>
+        </div>
+        <div class="info-btn">
+            <button id="info">IMP. Info</button>
+            <div class="more-info">
+                <p><b>DISCLAIMER:</b><br>
+                    This trading platform is an extremely gameified version of the stock market and does not
+                    represent the stock market in any way. The stock prices and the news associated are all fake.
+                    <br><br>
+                    <b>INSTRUCTIONS:</b><br>
+                    You start with 100,000. You can use this money to buy shares in 5 companies. Every now and then, the
+                    game will send you an alert with a breaking news about any one of the companies. You have some time
+                    to decide whether you wish to sell or buy shares before the game announces if the stock value
+                    increases or decreases. <b>Beware, the game randomly chooses if the value will increase or
+                        decrease.</b><br><br>
+                    <b>TIMINGS:</b><br>
+                    You have a total time of 10 minutes. The first news will come in a minute.
+                </p>
+            </div>
+        </div>
+    </header>
     <div class="stats">
-        <table>
+        <table class="stats-tb">
             <tr>
-                <td>Balance: </td>
-                <td>Loss: </td>
-                <td>Started w/: </td>
+                <td>Balance: <span id="current-balance"></span></td>
+                <td>Loss: <span id="loss"></span></td>
+                <td>Started w/: 100000</td>
             </tr>
             <tr>
-                <td>Invested: </td>
-                <td>Profit: </td>
-                <td>Net: </td>
+                <td>Invested: <span id="invested"></span></td>
+                <td>Profit: <span id="profit"></span></td>
+                <td>Net: <span id="net"></span></td>
             </tr>
         </table>
     </div>
@@ -33,15 +55,27 @@
             <h2 class="subheading">BUY</h2>
             <div class="content">
                 <select name="buy" id="buy">
-                    <option value="p1" id="option">NVIDEA</option>
-                    <option value="p2" id="option">Reliance Digital</option>
-                    <option value="p3" id="option">Tata Docomo</option>
-                    <option value="p4" id="option">Air India</option>
+                    <option value="p1" id="option">Reliance Digital</option>
+                    <option value="p2" id="option">NVIDIA</option>
+                    <option value="p3" id="option">Tesla</option>
+                    <option value="p4" id="option">Tata</option>
+                    <option value="p5" id="option">
+                        <!-- add anything here -->
+                    </option>
                 </select>
                 <div class="flex">
                     <div class="current-price" id="current-price-buy"></div>
                     <div class="trend" id="trend-buy"></div>
                 </div>
+                <div class="flex">
+                    <textarea id="quantity-buy" cols="30" rows="1" placeholder="Quantity"></textarea>
+                    <span class="symbols">@</span>
+                    <textarea id="current-price-buy-text" cols="30" rows="1" placeholder="Current Price"></textarea>
+                    <span class="symbols">=</span>
+                    <textarea id="invested-buy" cols="30" rows="1" placeholder="Amount"></textarea>
+                </div>
+                <button onclick="buy()" class="buy-button">Buy</button>
+                <div id="verified-bought"></div>
             </div>
             <div class="chart-container">
                 <canvas id = "buy_side_chart"></canvas>
@@ -51,15 +85,27 @@
             <h2 class="subheading">SELL</h2>
             <div class="content">
                 <select name="sell" id="sell">
-                    <option value="p1" id="option">NVIDEA</option>
-                    <option value="p2" id="option">Reliance Digital</option>
-                    <option value="p3" id="option">Tata Docomo</option>
-                    <option value="p4" id="option">Air India</option>
+                    <option value="p1" id="option">Reliance Digital</option>
+                    <option value="p2" id="option">NVIDIA</option>
+                    <option value="p3" id="option">Tesla</option>
+                    <option value="p4" id="option">Tata</option>
+                    <option value="p5" id="option">
+                        <!-- add anything here -->
+                    </option>
                 </select>
                 <div class="flex">
                     <div class="current-price" id="current-price-sell"></div>
                     <div class="trend" id="trend-sell"></div>
                 </div>
+                <div class="flex">
+                    <textarea id="quantity-sell" cols="30" rows="1" placeholder="Quantity"></textarea>
+                    <span class="symbols">@</span>
+                    <textarea id="current-price-sell-text" cols="30" rows="1" placeholder="Current Price"></textarea>
+                    <span class="symbols">=</span>
+                    <textarea id="invested-sell" cols="30" rows="1" placeholder="Amount"></textarea>
+                </div>
+                <button onclick="sell()" class="sell-button">Sell</button>
+                <div id="verified-sold"></div>
             </div>
             <div class="chart-container">
                 <canvas id = "sell_side_chart"></canvas>
@@ -67,11 +113,26 @@
         </div>
         <div class="portfolio">
             <h2 class="subheading">Portfolio</h2>
+            <div id="portfolio">
+                <div id="div-for-worth"></div>
+            </div>
         </div>
     </div>
+    <br><br>
+    <footer>
+        <table class="footer">
+            <tr>
+                <td class="footer-info" id="left-info">2022, DPS Sharjah</td>
+                <td class="footer-info" id="center-info">Made by Students of Grade 11</td>
+                <td class="footer-info" id="right-info">
+                    <a href="https://github.com/TanmeenPatel/DPS-Trading-Platform">Github</a>
+                </td>
+            </tr>
+        </table>
+    </footer>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./scripts/index.js"></script>
-<script src="./scripts/chart.js"></script>
+<script src="./scripts/news.js"></script>
 
 </html>
