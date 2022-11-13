@@ -48,6 +48,29 @@ header {
     border-radius: 0.5em;
 }
 
+.news-info {
+    display: none;
+    font-size: 15px;
+    font-family: 'Poppins', 'Verdana', sans-serif;
+    color: #ffffff;
+    background-color: rgba(60, 60, 60, 0.9);
+    width: 20em;
+    height: 2.8em;
+    position: absolute;
+    text-align: center;
+    margin: 2em;
+    padding: 3em;
+    border-radius: 0.5em;
+}
+
+
+
+.alert {
+    font-size: 18px;
+    margin: 0px;
+    padding: 0px;
+}
+
 #info:active+.more-info {
     display: flex;
 }

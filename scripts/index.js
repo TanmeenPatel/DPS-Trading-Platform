@@ -151,6 +151,7 @@ function display() {
         document.getElementById("profit").innerHTML = "0"
     }
 
+    document.getElementById("net").innerHTML = String(Number(localStorage.balance) + worth).substring(0, 8)
     document.getElementById("invested").innerHTML = String(localStorage.invested).substring(0, 8) //updating the amount the player has invested
     document.getElementById("current-balance").innerHTML = localStorage.balance.substring(0, 8) //updating current balance 
     document.getElementById("current-price-sell-text").innerHTML = localStorage[sell_s].substring(0, 6)
