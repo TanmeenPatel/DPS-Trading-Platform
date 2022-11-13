@@ -2,7 +2,25 @@ const labels = [
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 ];
 
-let buy_config = {
+const opts = {
+    legend: {
+        onClick: null,
+    },
+    plugins: {
+        tooltip: {
+            callbacks: {
+                label: function (ctx) {
+                    return String(ctx.parsed.y).substring(0, 8);
+                },
+                title: function (ctx) {
+                    return "";
+                },
+            },
+        },
+    },
+};
+
+let config = {
     type: "line",
     data: {
         labels,
@@ -15,40 +33,14 @@ let buy_config = {
             },
         ],
     },
-    options: {
-        legend: {
-            onClick: null,
-        },
-    },
+    options: opts,
 };
 
-let sell_config = {
-    type: "line",
-    data: {
-        labels,
-        datasets: [
-            {
-                label: "My First dataset",
-                backgroundColor: "rgb(255, 99, 132)",
-                borderColor: "rgb(255, 99, 132)",
-                data: [],
-            },
-        ],
-    },
-    options: {
-        legend: {
-            onClick: null,
-        },
-    },
-};
+const buy_chart = new Chart(document.getElementById("buy_side_chart"), config);
 
-const buy_chart = new Chart(
-    document.getElementById("buy_side_chart"),
-    buy_config
-);
 const sell_chart = new Chart(
     document.getElementById("sell_side_chart"),
-    sell_config
+    config
 );
 
 function register_change(product_name, price) {
@@ -62,15 +54,15 @@ function register_change(product_name, price) {
 }
 
 function display_buy_chart(product_name, srl_no) {
-    buy_config.data.datasets[0].label = product_name;
+    buy_chart.data.datasets[0].label = product_name;
     let stock_hist = JSON.parse(localStorage.stock_history);
-    buy_config.data.datasets[0].data = stock_hist[srl_no];
+    buy_chart.data.datasets[0].data = stock_hist[srl_no];
     buy_chart.update();
 }
 
 function display_sell_chart(product_name, srl_no) {
-    sell_config.data.datasets[0].label = product_name;
+    sell_chart.data.datasets[0].label = product_name;
     let stock_hist = JSON.parse(localStorage.stock_history);
-    sell_config.data.datasets[0].data = stock_hist[srl_no];
+    sell_chart.data.datasets[0].data = stock_hist[srl_no];
     sell_chart.update();
 }
