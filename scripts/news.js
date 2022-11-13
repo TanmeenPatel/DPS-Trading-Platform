@@ -1,5 +1,5 @@
 let NewsTrip = [
-    { News: "Reliance digital decides to offer 5G services to all of it's users.", P: "5G succeeds in India. ", N: "5G fails in India." },
+    { News: "Reliance digital decides to offer 5G services to all of it's users.", P: "<br>5G succeeds in India. ", N: "<br>5G fails in India." },
     { News: "AMD radeon releases their first ever graphics drive in India. It looks cool!", P: "AMD Radeon does not do well for graphic drivers in India.", N: "AMD Radeon succeeds in selling graphic drivers in India." },
     { News: "Tesla gets permission to manufacture cars in India.", P: "People's opinion has shifted to support electric cars in India.", N: "Indians boycott electric cars." },
     { News: "Tata decides to buy two major Indian airlines: Air India and Vistara", P: "An Air India aircraft landed safely into Mumbai after a dual engine failure.", N: "Pilots boycott Vistara due to crew harassment complaints." },
