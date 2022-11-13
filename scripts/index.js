@@ -132,7 +132,7 @@ function display() {
         else {
             document.getElementById(`display${l}`).innerHTML = `You have ${count} of stock ${l}`
         }
-        document.getElementById("div-for-worth").innerHTML = `Total worth of all your stocks are ` + String(worth).substring(0, 8)
+        document.getElementById("div-for-worth").innerHTML = `Your stocks are worth ` + String(worth).substring(0, 8)
 
     }
 

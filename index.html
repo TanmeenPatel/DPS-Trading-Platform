@@ -65,13 +65,14 @@
                 </select>
                 <div class="flex">
                     <div class="current-price" id="current-price-buy"></div>
-                    <span>,</span>
+                    <span class="current-price">,</span>
                     <div class="trend" id="trend-buy"></div>
                 </div>
                 <div class="flex">
-                    <textarea id="quantity-buy" cols="30" rows="1" placeholder="Quantity"></textarea> @
+                    <textarea id="quantity-buy" cols="30" rows="1" placeholder="Quantity"></textarea>
+                    <span class="symbols">@</span>
                     <textarea id="current-price-buy-text" cols="30" rows="1" placeholder="Current Price"></textarea>
-                    =
+                    <span class="symbols">=</span>
                     <textarea id="invested-buy" cols="30" rows="1" placeholder="Amount"></textarea>
                 </div>
                 <button onclick="buy()" class="buy-button">Buy</button>
@@ -92,13 +93,14 @@
                 </select>
                 <div class="flex">
                     <div class="current-price" id="current-price-sell"></div>
-                    <span>,</span>
+                    <span class="current-price">,</span>
                     <div class="trend" id="trend-sell"></div>
                 </div>
                 <div class="flex">
-                    <textarea id="quantity-sell" cols="30" rows="1" placeholder="Quantity"></textarea> @
+                    <textarea id="quantity-sell" cols="30" rows="1" placeholder="Quantity"></textarea>
+                    <span class="symbols">@</span>
                     <textarea id="current-price-sell-text" cols="30" rows="1" placeholder="Current Price"></textarea>
-                    =
+                    <span class="symbols">=</span>
                     <textarea id="invested-sell" cols="30" rows="1" placeholder="Amount"></textarea>
                 </div>
                 <button onclick="sell()" class="sell-button">Sell</button>
