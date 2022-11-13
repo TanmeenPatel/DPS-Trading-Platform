@@ -43,6 +43,9 @@
                     <div class="trend" id="trend-buy"></div>
                 </div>
             </div>
+            <div class="chart-container">
+                <canvas id = "buy_side_chart"></canvas>
+            </div>
         </div>
         <div class="sell">
             <h2 class="subheading">SELL</h2>
@@ -58,12 +61,17 @@
                     <div class="trend" id="trend-sell"></div>
                 </div>
             </div>
+            <div class="chart-container">
+                <canvas id = "sell_side_chart"></canvas>
+            </div>
         </div>
         <div class="portfolio">
             <h2 class="subheading">Portfolio</h2>
         </div>
     </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./scripts/index.js"></script>
+<script src="./scripts/chart.js"></script>
 
 </html>
