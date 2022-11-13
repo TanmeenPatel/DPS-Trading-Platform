@@ -71,6 +71,9 @@
                     <div class="current-price" id="current-price-buy"></div>
                     <div class="trend" id="trend-buy"></div>
                 </div>
+                <div class="chart-container">
+                    <canvas id = "buy_side_chart"></canvas>
+                </div>
                 <div class="flex">
                     <textarea id="quantity-buy" cols="30" rows="1" placeholder="Quantity"></textarea>
                     <span class="symbols">@</span>
@@ -80,9 +83,6 @@
                 </div>
                 <button onclick="buy()" class="buy-button">Buy</button>
                 <div id="verified-bought"></div>
-                <div class="chart-container">
-                    <canvas id = "buy_side_chart"></canvas>
-                </div>
             </div>
         </div>
         <div class="sell">
@@ -101,6 +101,9 @@
                     <div class="current-price" id="current-price-sell"></div>
                     <div class="trend" id="trend-sell"></div>
                 </div>
+                <div class="chart-container">
+                    <canvas id = "sell_side_chart"></canvas>
+                </div>
                 <div class="flex">
                     <textarea id="quantity-sell" cols="30" rows="1" placeholder="Quantity"></textarea>
                     <span class="symbols">@</span>
@@ -110,9 +113,6 @@
                 </div>
                 <button onclick="sell()" class="sell-button">Sell</button>
                 <div id="verified-sold"></div>
-                <div class="chart-container">
-                    <canvas id = "sell_side_chart"></canvas>
-                </div>
             </div>
         </div>
         <div class="portfolio">
