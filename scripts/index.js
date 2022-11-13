@@ -128,15 +128,30 @@ function display() {
                 count = count + Number(stocks[m]['number'])
             }
         }
+        if (l == 1) {
+            stock_n = 'Reliance Digital'
+        }
+        else if (l == 2) {
+            stock_n = 'NVIDIA'
+        }
+        else if (l == 3) {
+            stock_n = 'Tesla'
+        }
+        else if (l == 4) {
+            stock_n = 'Tata'
+        }
+        else {
+            stock_n = 'Microsoft'
+        }
         worth = worth + (count * Number(localStorage[`p${l}`]))     //finding the sum of worth of all stocks based on current prices
         if (n <= 5) {
             let div = document.createElement("div");
             div.id = `display${l}`;
             document.getElementById("portfolio").appendChild(div)
-            div.innerHTML = `You have ${count} of stock ${l}`
+            div.innerHTML = `You have ${count} of stock <br><b> ${stock_n}<b>`
         }
         else {
-            document.getElementById(`display${l}`).innerHTML = `You have ${count} of stock ${l}`
+            document.getElementById(`display${l}`).innerHTML = `You have ${count} stock(s) of <br><b> ${stock_n}<b>`
         }
         document.getElementById("div-for-worth").innerHTML = `Your stocks are worth ` + String(worth).substring(0, 8)
 

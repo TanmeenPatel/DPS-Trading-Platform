@@ -116,6 +116,8 @@ td {
 .portfolio {
     width: 20%;
     height: 20.5em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .buy-sell {
@@ -270,7 +272,7 @@ a {
 }
 
 #portfolio {
-    text-align: center;
+    /* text-align: center; */
     font-size: 0.8em;
 }
 
