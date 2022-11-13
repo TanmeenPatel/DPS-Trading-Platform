@@ -13,6 +13,7 @@ if (localStorage.vis == "undefined1") {
     localStorage.p4_change = -"1.72"
     localStorage.p5_change = -"7.72"
     localStorage.stocks = '[{}]'
+    localStorage.stock_history = JSON.stringify({p1 : [259.076], p2 : [92.210], p3 : [150.456], p4 : [192.010], p5 : [72.789]})
     localStorage.invested = "0"
 }
 var k = 1;
@@ -68,6 +69,8 @@ function decrease() {
     let value_dec = Number(localStorage[p]) * value / 100
     localStorage[p] = Number(localStorage[p]) - value_dec
     localStorage[`${p}_change`] = `-${value}`
+    console.log(localStorage[p])
+    register_change(p, localStorage[p])
 
 }
 function increase() {
@@ -94,12 +97,15 @@ function increase() {
     let value_inc = Number(localStorage[p]) * value / 100
     localStorage[p] = Number(localStorage[p]) + value_inc
     localStorage[`${p}_change`] = `+${value}`
+    register_change(p, localStorage[p])
 }
 
 function Loop() {
     // here is buy and sell na?
     buy_s = document.getElementById('buy').value
+    buy_s_name = document.querySelector(`option[value=${buy_s}]`).dataset.name
     sell_s = document.getElementById('sell').value
+    sell_s_name = document.querySelector(`option[value=${sell_s}]`).dataset.name
 
     setTimeout(function () {
         display()
@@ -153,12 +159,14 @@ function display() {
     document.getElementById("current-price-buy").innerHTML = localStorage[buy_s].substring(0, 6)
     document.getElementById("trend-buy").innerHTML = `${localStorage[`${buy_s}_change`].substring(0, 6)}%` //representing the latest trend in buying subsection
 
+    display_buy_chart(buy_s_name, buy_s)
+    
     let quantity = Number(document.getElementById("quantity-buy").value)
     let option = document.getElementById('buy').value
     let current_price = Number(localStorage[option])
     let total = String(current_price * quantity)
     document.getElementById('invested-buy').innerHTML = total.substring(0, 6) //finding the total and displaying it in total
-
+    
     let quantity2 = Number(document.getElementById("quantity-sell").value)
     let option2 = document.getElementById('sell').value
     let current_price2 = Number(localStorage[option2])
@@ -171,7 +179,7 @@ function display() {
     else {
         document.getElementById("trend-buy").style.color = "green"
     }
-
+    
     // Selling Part
     document.getElementById("current-price-sell").innerHTML = localStorage[sell_s].substring(0, 6)
     document.getElementById("trend-sell").innerHTML = `${localStorage[`${sell_s}_change`].substring(0, 6)}%`
@@ -181,6 +189,8 @@ function display() {
     else {
         document.getElementById("trend-sell").style.color = "green"
     }
+
+    display_sell_chart(sell_s_name, sell_s)
 }
 Loop();
 
