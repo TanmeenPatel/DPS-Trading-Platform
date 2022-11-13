@@ -13,7 +13,7 @@ if (localStorage.vis == "undefined1") {
     localStorage.p4_change = -"1.72"
     localStorage.p5_change = -"7.72"
     localStorage.stocks = '[{}]'
-    localStorage.stock_history = JSON.stringify({p1 : [259.076], p2 : [92.210], p3 : [150.456], p4 : [192.010], p5 : [72.789]})
+    localStorage.stock_history = JSON.stringify({ p1: [259.076], p2: [92.210], p3: [150.456], p4: [192.010], p5: [72.789] })
     localStorage.invested = "0"
 }
 var k = 1;
@@ -112,7 +112,7 @@ function Loop() {
         if (k < 2) {
             Loop();
         }
-    }, 500)
+    }, 200)
 }
 let n = 0
 function display() {
@@ -150,44 +150,78 @@ function display() {
         document.getElementById("loss").innerHTML = String(100000 - (Number(localStorage.balance) + worth)).substring(0, 8)
         document.getElementById("profit").innerHTML = "0"
     }
+    for (a = 1; a <= 5; a++) {
+        if (a == 1) {
+            p = 'Reliance Digital '
+        }
+        else if (a == 2) {
+            p = 'NVIDIA '
+        }
+        else if (a == 3) {
+            p = 'Tesla '
+        }
+        else if (a == 4) {
+            p = 'Tata '
+        }
+        else if (a == 5) {
+            p = 'Microsoft '
+        }
+        if (localStorage[`p${a}_change`][0] == "-") {
+            document.getElementById(`option${a}`).style.color = "red"
+            document.getElementById(`option${a}y`).style.color = "red"
+            if (document.getElementById("buy").value == `p${a}`) {
+                document.getElementById('buy').style.color = "red"
+            }
+            if (document.getElementById("sell").value == `p${a}`) {
+                document.getElementById('sell').style.color = "red"
+            }
+        }
+
+        else {
+            document.getElementById(`option${a}`).style.color = "green"
+            document.getElementById(`option${a}y`).style.color = "green"
+            if (document.getElementById("buy").value == `p${a}`) {
+                document.getElementById('buy').style.color = "green"
+            }
+            if (document.getElementById("sell").value == `p${a}`) {
+                document.getElementById('sell').style.color = "green"
+            }
+        }
+        document.getElementById(`option${a}`).innerHTML = p + `(${String(localStorage[`p${a}`]).substring(0, 6)}) ${localStorage[`p${a}_change`].substring(0, 6)}`
+        document.getElementById(`option${a}y`).innerHTML = p + `(${String(localStorage[`p${a}`]).substring(0, 6)}) ${localStorage[`p${a}_change`].substring(0, 6)}`
+    }
 
     document.getElementById("net").innerHTML = String(Number(localStorage.balance) + worth).substring(0, 8)
     document.getElementById("invested").innerHTML = String(localStorage.invested).substring(0, 8) //updating the amount the player has invested
     document.getElementById("current-balance").innerHTML = localStorage.balance.substring(0, 8) //updating current balance 
     document.getElementById("current-price-sell-text").innerHTML = localStorage[sell_s].substring(0, 6)
     document.getElementById("current-price-buy-text").innerHTML = localStorage[buy_s].substring(0, 6)
-    document.getElementById("current-price-buy").innerHTML = localStorage[buy_s].substring(0, 6)
-    document.getElementById("trend-buy").innerHTML = `${localStorage[`${buy_s}_change`].substring(0, 6)}%` //representing the latest trend in buying subsection
+    // document.getElementById("current-price-buy").innerHTML = localStorage[buy_s].substring(0, 6)
+    // document.getElementById("trend-buy").innerHTML = `${localStorage[`${buy_s}_change`].substring(0, 6)}%` //representing the latest trend in buying subsection
 
     display_buy_chart(buy_s_name, buy_s)
-    
+
     let quantity = Number(document.getElementById("quantity-buy").value)
     let option = document.getElementById('buy').value
     let current_price = Number(localStorage[option])
     let total = String(current_price * quantity)
     document.getElementById('invested-buy').innerHTML = total.substring(0, 6) //finding the total and displaying it in total
-    
+
     let quantity2 = Number(document.getElementById("quantity-sell").value)
     let option2 = document.getElementById('sell').value
     let current_price2 = Number(localStorage[option2])
     let total2 = String(current_price2 * quantity2)
     document.getElementById('invested-sell').innerHTML = total2.substring(0, 6) //finding the total and displaying it in total
 
-    if (localStorage[`${buy_s}_change`][0] == "-") {
-        document.getElementById("trend-buy").style.color = "red"
-    }
-    else {
-        document.getElementById("trend-buy").style.color = "green"
-    }
-    
+
     // Selling Part
-    document.getElementById("current-price-sell").innerHTML = localStorage[sell_s].substring(0, 6)
-    document.getElementById("trend-sell").innerHTML = `${localStorage[`${sell_s}_change`].substring(0, 6)}%`
+    // document.getElementById("current-price-sell").innerHTML = localStorage[sell_s].substring(0, 6)
+    // document.getElementById("trend-sell").innerHTML = `${localStorage[`${sell_s}_change`].substring(0, 6)}%`
     if (localStorage[`${sell_s}_change`][0] == "-") {
-        document.getElementById("trend-sell").style.color = "red"
+        // document.getElementById("trend-sell").style.color = "red"
     }
     else {
-        document.getElementById("trend-sell").style.color = "green"
+        // document.getElementById("trend-sell").style.color = "green"
     }
 
     display_sell_chart(sell_s_name, sell_s)
