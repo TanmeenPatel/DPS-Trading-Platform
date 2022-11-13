@@ -7,7 +7,17 @@ const opts = {
         onClick: null,
     },
     plugins: {
+        legend: {
+            labels: {
+                font: {
+                    size: 16,
+                },
+            },
+        },
         tooltip: {
+            bodyFont: {
+                size: 16,
+            },
             callbacks: {
                 label: function (ctx) {
                     return String(ctx.parsed.y).substring(0, 8);
