@@ -202,8 +202,8 @@ function display() {
                 document.getElementById('sell').style.color = "green"
             }
         }
-        document.getElementById(`option${a}`).innerHTML = p + `(${String(localStorage[`p${a}`]).substring(0, 6)}) ${localStorage[`p${a}_change`].substring(0, 6)}`
-        document.getElementById(`option${a}y`).innerHTML = p + `(${String(localStorage[`p${a}`]).substring(0, 6)}) ${localStorage[`p${a}_change`].substring(0, 6)}`
+        document.getElementById(`option${a}`).innerHTML = p + `(${String(localStorage[`p${a}`]).substring(0, 6)}) ${localStorage[`p${a}_change`].substring(0, 6)}%`
+        document.getElementById(`option${a}y`).innerHTML = p + `(${String(localStorage[`p${a}`]).substring(0, 6)}) ${localStorage[`p${a}_change`].substring(0, 6)}%`
     }
 
     document.getElementById("net").innerHTML = String(Number(localStorage.balance) + worth).substring(0, 8)
