@@ -1,17 +1,17 @@
 let NewsTrip = [
-    { News: "Reliance digital decides to offer 5G services to all of it's users.", P: "<br>5G succeeds in India. ", N: "<br>5G fails in India." },
-    { News: "AMD radeon releases their first ever graphics drive in India. It looks cool!", P: "AMD Radeon does not do well for graphic drivers in India.", N: "AMD Radeon succeeds in selling graphic drivers in India." },
-    { News: "Tesla gets permission to manufacture cars in India.", P: "People's opinion has shifted to support electric cars in India.", N: "Indians boycott electric cars." },
-    { News: "Tata decides to buy two major Indian airlines: Air India and Vistara", P: "An Air India aircraft landed safely into Mumbai after a dual engine failure.", N: "Pilots boycott Vistara due to crew harassment complaints." },
-    { News: "Microsoft releases windows 12 in India.", P: "Windows 12 update is so good looking. Everyone Adopts windows 12.", N: "No one feels the need to update to windows 12. " },
+    { News: "Research by Rimac causes new disruption in car batteries.", P: "Tesla makes use of new technology to make better vehicles.", N: "Tesla loses it's technological edge over battery production." },
+    { News: "Mitsubishi outsources part of Japanese production to third world country.", P: "Crtics laud the decision as it will improve profits.", N: "Critics criticize Mitsubishi for abandoning their home country to make a little profit." },
+    { News: "Apple encourages government of China to adopt better working laws. Potential sanction on Chinese production facilities.", P: "People appreciate Apple's commitment to health and well-being.", N: "Apple's factories get affected by the sanctions." },
+    { News: "Kota considers expansion for more coaching buildings.", P: "Byjus utilize opportunity to add physical coaching.", N: "Less students use Byjus because of onsite class." },
+    { News: "Microsoft releases Windows 12 in India.", P: "People appreciate the new design. Everyone adopts windows 12.", N: "No one feels the need to update to windows 12. " }
 ]
+
 let NewsTrip2 = [
-    { News: "Enter new news here for Reliance", P: "Enter it's positives for Reliance", N: "Enter it's negatives for Reliance" },
-    { News: "Enter new news here for NVIDIA", P: "Enter it's positives for NVIDIA", N: "Enter it's negatives for NVIDIA" },
-    { News: "Enter new news here for Tesla", P: "Enter it's positives for Tesla", N: "Enter it's negatives for Tesla" },
-    { News: "Enter new news here for Tata", P: "Enter it's positives for Tata", N: "Enter it's negatives for Tata" },
-    { News: "Enter new news here for Microsoft", P: "Enter it's positives for Microsoft", N: "Enter it's negatives for Micosoft" }
+    { P: "p1", N: "p2", R: "Shell is facing stress due to the Russia-Ukraine war. Shell decides to stop extraction of oil for 15 days." },
+    { P: "p5", N: "p3", R: "Biometric tech startup refuses buyout from Apple. Apple files lawsuit against the company." },
+    { P: "p4", N: "p5", R: "Microsoft announces a partnership with Byjus, agreeing to add Byjus as a default installed application." }
 ]
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
@@ -20,54 +20,93 @@ function getRandomArbitrary(min, max) {
 }
 i = 0
 d = NewsTrip
+var dhoom = 0
 function loop() {
     setTimeout(function () {
         if (i == 5) {
             d = NewsTrip2
             i = 0
         }
-        setTimeout(function () {
-            document.getElementById("news").innerHTML = ""
-            document.getElementById("news-info").style.display = "none"
-        }, 5000)
-        let p = `p${i + 1}`
-        if (i < d.length) {
-            document.getElementById("news").innerHTML = d[i].News
-            document.getElementById("news-info").style.display = "block"
+        if (d == NewsTrip) {
             setTimeout(function () {
-                let random = getRandomInt(2)
-                if (random == 0) {
-                    document.getElementById("news").innerHTML = d[i].N
+                document.getElementById("news").innerHTML = ""
+                document.getElementById("news-info").style.display = "none"
+            }, 5000)
+            let p = `p${i + 1}`
+            if (i < d.length) {
+                document.getElementById("news").innerHTML = d[i].News
+                document.getElementById("news-info").style.display = "block"
+                setTimeout(function () {
+                    let random = getRandomInt(2)
+                    if (random == 0) {
+                        document.getElementById("news").innerHTML = d[i].N
+                        document.getElementById("news-info").style.display = "flex"
+                        setTimeout(function () {
+                            document.getElementById("news").innerHTML = ""
+                            document.getElementById("news-info").style.display = "none"
+                        }, 5000)
+                        let value = getRandomArbitrary(10, 20)
+                        let dec = Number(localStorage[p]) * value / 100
+                        localStorage[p] = Number(localStorage[p]) - dec
+                        localStorage[`${p}_change`] = `-${value}`
+                        register_change(p, localStorage[p])
+                        i++
+                    }
+                    else {
+                        document.getElementById("news").innerHTML = d[i].P
+                        document.getElementById("news-info").style.display = "flex"
+                        setTimeout(function () {
+                            document.getElementById("news").innerHTML = ""
+                            document.getElementById("news-info").style.display = "none"
+                        }, 5000)
+                        let value = getRandomArbitrary(15, 25)
+                        let inc = Number(localStorage[p]) * value / 100
+                        localStorage[p] = Number(localStorage[p]) + inc
+                        localStorage[`${p}_change`] = `+${value}`
+                        register_change(p, localStorage[p])
+                        i++
+                    }
+                }, 15000)
+                loop();
+            }
+        }
+        else if (d == NewsTrip2) {
+            if (dhoom == 0) {
+                document.getElementById("news").innerHTML = "From now on, the news that will be displayed will affect 2 stock prices. Think logically and figure out where to invest."
+                document.getElementById("news-info").style.display = "block"
+                dhoom++
+            }
+            setTimeout(function () {
+                document.getElementById("news").innerHTML = ""
+                document.getElementById("news-info").style.display = "none"
+            }, 5000)
+            let pneg = NewsTrip2[i].N
+            let ppos = NewsTrip2[i].P
+            if (i < d.length) {
+                document.getElementById("news").innerHTML = d[i].R
+                document.getElementById("news-info").style.display = "block"
+                setTimeout(function () {
+                    let value = getRandomArbitrary(10, 20)
+                    let dec = Number(localStorage[pneg]) * value / 100
+                    localStorage[pneg] = Number(localStorage[pneg]) - dec
+                    localStorage[`${pneg}_change`] = `-${value}`
+                    register_change(pneg, localStorage[pneg])
+                    let value2 = getRandomArbitrary(15, 25)
+                    let inc = Number(localStorage[ppos]) * value2 / 100
+                    localStorage[ppos] = Number(localStorage[ppos]) + inc
+                    localStorage[`${ppos}_change`] = `+${value2}`
+                    register_change(ppos, localStorage[ppos])
+                    document.getElementById("news").innerHTML = "Stock prices of the affected stocks have been uodated."
                     document.getElementById("news-info").style.display = "flex"
                     setTimeout(function () {
                         document.getElementById("news").innerHTML = ""
                         document.getElementById("news-info").style.display = "none"
                     }, 5000)
-                    let value = getRandomArbitrary(15, 25)
-                    let dec = Number(localStorage[p]) * value / 100
-                    localStorage[p] = Number(localStorage[p]) - dec
-                    localStorage[`${p}_change`] = `-${value}`
-                    register_change(p, localStorage[p])
                     i++
-                }
-                else {
-                    document.getElementById("news").innerHTML = d[i].P
-                    document.getElementById("news-info").style.display = "flex"
-                    setTimeout(function () {
-                        document.getElementById("news").innerHTML = ""
-                        document.getElementById("news-info").style.display = "none"
-                    }, 5000)
-                    let value = getRandomArbitrary(15, 40)
-                    let inc = Number(localStorage[p]) * value / 100
-                    localStorage[p] = Number(localStorage[p]) + inc
-                    localStorage[`${p}_change`] = `+${value}`
-                    register_change(p, localStorage[p])
-                    i++
-                }
-            }, 15000)
-            loop();
+                }, 15000)
+                loop();
+            }
         }
     }, 45000)
 }
 loop()
-

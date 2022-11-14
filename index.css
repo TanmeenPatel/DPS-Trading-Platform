@@ -1,5 +1,5 @@
 body {
-    background: url("bg2.jpg") no-repeat center center fixed;
+    background: url("./src/bg2.jpg") no-repeat center center fixed;
     background-size: 100%;
     opacity: 0.8;
     margin: 0;
@@ -55,11 +55,10 @@ header {
     color: #ffffff;
     background-color: rgba(60, 60, 60, 0.95);
     width: 20em;
-    height: 2.8em;
     position: absolute;
     text-align: center;
     margin: 2em;
-    padding: 3em;
+    padding: 1.5em;
     border-radius: 0.5em;
 }
 
@@ -274,7 +273,7 @@ a {
 
 #portfolio {
     /* text-align: center; */
-    font-size: 0.8em;
+    font-size: 0.75em;
 }
 
 #div-for-worth {
@@ -295,4 +294,8 @@ a {
 select {
     font-weight: 600;
     border: black solid 1px;
+}
+
+.empty-margin {
+    height: 0.5em
 }

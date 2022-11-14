@@ -129,16 +129,16 @@ function display() {
             }
         }
         if (l == 1) {
-            stock_n = 'Reliance Digital'
-        }
-        else if (l == 2) {
-            stock_n = 'NVIDIA'
-        }
-        else if (l == 3) {
             stock_n = 'Tesla'
         }
+        else if (l == 2) {
+            stock_n = 'Mitsubishi'
+        }
+        else if (l == 3) {
+            stock_n = 'Apple'
+        }
         else if (l == 4) {
-            stock_n = 'Tata'
+            stock_n = 'Byjus'
         }
         else {
             stock_n = 'Microsoft'
@@ -151,7 +151,7 @@ function display() {
             div.innerHTML = `You have ${count} of stock <br><b> ${stock_n}<b>`
         }
         else {
-            document.getElementById(`display${l}`).innerHTML = `You have ${count} stock(s) of <br><b> ${stock_n}<b>`
+            document.getElementById(`display${l}`).innerHTML = `You have ${count} stock(s) of <br><b> ${stock_n}<b><div class="empty-margin"></div>`
         }
         document.getElementById("div-for-worth").innerHTML = `Your stocks are worth ` + String(worth).substring(0, 8)
 
@@ -167,16 +167,16 @@ function display() {
     }
     for (a = 1; a <= 5; a++) {
         if (a == 1) {
-            p = 'Reliance Digital '
-        }
-        else if (a == 2) {
-            p = 'NVIDIA '
-        }
-        else if (a == 3) {
             p = 'Tesla '
         }
+        else if (a == 2) {
+            p = 'Mitsubishi '
+        }
+        else if (a == 3) {
+            p = 'Apple '
+        }
         else if (a == 4) {
-            p = 'Tata '
+            p = 'Byjus '
         }
         else if (a == 5) {
             p = 'Microsoft '
