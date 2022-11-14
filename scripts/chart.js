@@ -37,8 +37,8 @@ let config = {
         datasets: [
             {
                 label: "Stock Name",
-                backgroundColor: "rgb(255, 99, 132)",
-                borderColor: "rgb(255, 99, 132)",
+                backgroundColor: "rgb(147, 144, 147)",
+                borderColor: "rgb(147, 144, 147)",
                 data: [],
             },
         ],

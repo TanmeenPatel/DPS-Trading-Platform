@@ -1,5 +1,5 @@
 body {
-    background: url("bg.jpg") no-repeat center center fixed;
+    background: url("bg2.jpg") no-repeat center center fixed;
     background-size: 100%;
     opacity: 0.8;
     margin: 0;
@@ -39,7 +39,7 @@ header {
     font-size: 12px;
     font-family: 'Poppins', 'Verdana', sans-serif;
     color: #ffffff;
-    background-color: rgba(60, 60, 60, 0.9);
+    background-color: rgba(60, 60, 60, 0.95);
     width: 30em;
     height: 30em;
     position: absolute;
@@ -53,7 +53,7 @@ header {
     font-size: 15px;
     font-family: 'Poppins', 'Verdana', sans-serif;
     color: #ffffff;
-    background-color: rgba(60, 60, 60, 0.9);
+    background-color: rgba(60, 60, 60, 0.95);
     width: 20em;
     height: 2.8em;
     position: absolute;
@@ -182,7 +182,7 @@ select {
 }
 
 .footer-info {
-    font-family: 'Poppins', 'Verdana', sans-serif;
+    font-family: 'Consoloas', monospace;
     width: 33.33%;
     font-size: 0.75em;
     color: #555;
@@ -230,6 +230,7 @@ textarea {
     padding-top: 5px;
     padding-bottom: 5px;
     resize: none;
+    border: black solid 1px;
 }
 
 .sell-button {
@@ -240,11 +241,11 @@ textarea {
     border-radius: 50px;
     border: none;
     width: 100px;
-    background-color: #FF8F8F;
+    background-color: #ff8181;
 }
 
 .sell-button:hover {
-    background-color: #ff8f8fde;
+    background-color: #fb5f5fde;
 }
 
 a {
@@ -293,5 +294,5 @@ a {
 
 select {
     font-weight: 600;
-    border: black solid 2px;
+    border: black solid 1px;
 }
