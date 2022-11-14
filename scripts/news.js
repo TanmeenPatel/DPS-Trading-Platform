@@ -20,7 +20,7 @@ function getRandomArbitrary(min, max) {
 }
 i = 0
 d = NewsTrip
-var dhoom = 0
+dhoom = 0
 function loop() {
     setTimeout(function () {
         if (i == 5) {
@@ -72,7 +72,7 @@ function loop() {
         }
         else if (d == NewsTrip2) {
             if (dhoom == 0) {
-                document.getElementById("news").innerHTML = "From now on, the news that will be displayed will affect 2 stock prices. Think logically and figure out where to invest."
+                document.getElementById("news").innerHTML = "FROM NOW ON, THE NEWS THAT WILL BE DISPLAYED WILL AFFECT 2 STOCK PRICES. THINK LOGICALLY AND FIGURE OUT WHERE TO INVEST"
                 document.getElementById("news-info").style.display = "block"
                 dhoom++
             }
@@ -83,8 +83,10 @@ function loop() {
             let pneg = NewsTrip2[i].N
             let ppos = NewsTrip2[i].P
             if (i < d.length) {
-                document.getElementById("news").innerHTML = d[i].R
-                document.getElementById("news-info").style.display = "block"
+                setTimeout(function () {
+                    document.getElementById("news").innerHTML = d[i].R
+                    document.getElementById("news-info").style.display = "block"
+                }, 5000)
                 setTimeout(function () {
                     let value = getRandomArbitrary(10, 20)
                     let dec = Number(localStorage[pneg]) * value / 100
@@ -103,10 +105,10 @@ function loop() {
                         document.getElementById("news-info").style.display = "none"
                     }, 5000)
                     i++
-                }, 15000)
+                }, 35000)
                 loop();
             }
         }
-    }, 45000)
+    }, 60000)
 }
 loop()
