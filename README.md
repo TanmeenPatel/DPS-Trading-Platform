@@ -1,7 +1,7 @@
 # DPS-Trading-Platform
 
-welcome to the repository of the godforsaken trading platform project, created by 3 students in the course of 3 days. 
-filled with potential depression, breakdowns, and exhiliration, we invite you to ride along us in this journey of self-discovery and frustration
+welcome to the repository of the trading platform project, created by 3 students in the course of 3 days. 
+filled with potential depression, breakdowns, and exhiliration, we invite you to ride along us in this journey of self-discovery
 
 standing at over 900 lines of code, this project makes use of HTML, CSS, and Javascript. 
 
